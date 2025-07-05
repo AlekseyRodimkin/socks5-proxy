@@ -1,0 +1,16 @@
+services:
+  socks5-proxy:
+    build: .
+    ports:
+      - "1080:1080"
+    environment:
+      - PROXYUSER1=${PROXYUSER1}
+      - PROXYPASS1=${PROXYPASS1}
+      - PROXYUSER2=${PROXYUSER2}
+      - PROXYPASS2=${PROXYPASS2}
+      - PROXYUSER3=${PROXYUSER3}
+      - PROXYPASS3=${PROXYPASS3}
+      - PROXYUSER4=${PROXYUSER4}
+      - PROXYPASS4=${PROXYPASS4}
+      - PROXYUSER5=${PROXYUSER5}
+      - PROXYPASS5=${PROXYPASS5}

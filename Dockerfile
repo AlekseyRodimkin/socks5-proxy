@@ -1,10 +1,12 @@
 FROM alpine:latest
 
-RUN apk add --no-cache dante-server && \
-    adduser -S -s /bin/false socks-user
+RUN apk add --no-cache dante-server shadow libc6-compat
 
 COPY sockd.conf /etc/sockd.conf
+COPY entrypoint.sh /entrypoint.sh
+
+RUN chmod +x /entrypoint.sh
 
 EXPOSE 1080
 
-CMD ["sockd", "-f", "/etc/sockd.conf", "-N", "1"]
+CMD ["/entrypoint.sh"]
